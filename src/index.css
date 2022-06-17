@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  @apply flex justify-center items-center h-screen bg-gray-800;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.calculator {
+  @apply w-80 max-w-xs p-4 rounded-lg shadow-md;
+  @apply grid grid-cols-4 gap-2;
+  grid-template-rows: 0.5fr 1.5fr repeat(5, 1fr); 
+  background-color: #1795d4;
 }
+
+.display {
+  @apply flex flex-col items-end justify-center rounded-sm;
+  @apply col-span-full p-2 bg-gray-900;
+  color: #fed800;
+}
+
+.previous-operand {
+  @apply text-lg;
+  @apply w-full text-right;
+}
+
+.current-operand {
+  @apply w-full text-3xl text-right;
+}
+
+.digit-button {
+  @apply bg-blue-200 p-4 font-semibold text-blue-800 rounded-sm shadow;
+  @apply active:bg-blue-300;
+}
+
+.digit-button[value="0"] {
+  @apply col-span-2;
+}
+
+.operator-button {
+  @apply p-4 font-semibold text-yellow-900 rounded-sm shadow;
+  @apply active:bg-yellow-400;
+  background-color: #fed800;
+}
+
